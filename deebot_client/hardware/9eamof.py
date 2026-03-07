@@ -161,6 +161,7 @@ def get_device_info() -> StaticDeviceInfo:
                         WorkMode.MOP_AFTER_VACUUM,
                         WorkMode.VACUUM,
                         WorkMode.VACUUM_AND_MOP,
+                        WorkMode.AI_INTELLIGENT,
                     ),
                 ),
             ),
