@@ -119,7 +119,7 @@ from deebot_client.events import (
 )
 from deebot_client.events.auto_empty import AutoEmptyEvent
 from deebot_client.events.mop_auto_wash_frequency import MopAutoWashFrequencyEvent
-from deebot_client.models import StaticDeviceInfo
+from deebot_client.models import CleanAction, CleanMode, StaticDeviceInfo
 
 
 def get_device_info() -> StaticDeviceInfo:
@@ -152,6 +152,9 @@ def get_device_info() -> StaticDeviceInfo:
                         WorkMode.VACUUM,
                         WorkMode.VACUUM_AND_MOP,
                     ),
+                ),
+                intelligent_hosting=CapabilityExecute(
+                    lambda: CleanV2(CleanAction.START, CleanMode.ENTRUST)
                 ),
             ),
             custom=CapabilityCustomCommand(
