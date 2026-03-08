@@ -80,12 +80,18 @@ class CleanV2(Clean):
 
     NAME = "clean_V2"
 
+    def __init__(
+        self, action: CleanAction, mode: CleanMode = CleanMode.AUTO
+    ) -> None:
+        self._mode = mode
+        super().__init__(action)
+
     def _get_args(self, action: CleanAction) -> dict[str, Any]:
         content: dict[str, str] = {}
         args = {"act": action.value, "content": content}
         match action:
             case CleanAction.START:
-                content["type"] = CleanMode.AUTO.value
+                content["type"] = self._mode.value
             case CleanAction.STOP | CleanAction.PAUSE:
                 content["type"] = ""
         return args

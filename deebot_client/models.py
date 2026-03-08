@@ -81,6 +81,7 @@ class CleanMode(StrEnumWithXml):
     AUTO = "auto", "auto"
     SPOT_AREA = "spotArea", "SpotArea"
     CUSTOM_AREA = "customArea", "spot"
+    ENTRUST = "entrust", "entrust"
 
 
 @dataclass(frozen=True)

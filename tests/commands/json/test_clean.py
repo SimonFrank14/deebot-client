@@ -143,3 +143,23 @@ async def test_CleanArea(
     command: CleanArea | CleanAreaV2, args: dict[str, str]
 ) -> None:
     await assert_execute_command(command, args)
+
+
+@pytest.mark.parametrize(
+    ("command", "args"),
+    [
+        (
+            CleanV2(CleanAction.START),
+            {"act": "start", "content": {"type": "auto"}},
+        ),
+        (
+            CleanV2(CleanAction.START, CleanMode.ENTRUST),
+            {"act": "start", "content": {"type": "entrust"}},
+        ),
+    ],
+    ids=["Default mode (auto)", "Entrust mode"],
+)
+async def test_CleanV2_mode(
+    command: CleanV2, args: dict[str, Any]
+) -> None:
+    await assert_execute_command(command, args)

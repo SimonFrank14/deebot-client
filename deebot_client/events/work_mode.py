@@ -16,6 +16,7 @@ class WorkMode(IntEnum):
     VACUUM = 1
     MOP = 2
     MOP_AFTER_VACUUM = 3
+    AI_INTELLIGENT = 4
 
 
 @dataclass(frozen=True)
